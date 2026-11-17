@@ -1,0 +1,72 @@
+{% extends 'layout.html' %}
+
+{% load static %}
+
+{% block body %}
+<div class="home-hero">
+    <div class="container hero-shell">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+                <span class="section-tag">Modern payment solutions</span>
+                <h1>Fast, safe, and seamless <span>MPESA</span> transactions.</h1>
+                <p>
+                    Empower your business with secure mobile payments, instant checkout experiences,
+                    and a customer journey built for trust and speed.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="{% url 'myapp:stk' %}" class="btn primary-btn">Pay Now</a>
+                    <a href="{% url 'myapp:token' %}" class="btn secondary-btn">Get Token</a>
+                </div>
+
+                <div class="trust-row">
+                    <div>
+                        <strong>10k+</strong>
+                        <span>Payments</span>
+                    </div>
+                    <div>
+                        <strong>99.9%</strong>
+                        <span>Reliability</span>
+                    </div>
+                    <div>
+                        <strong>24/7</strong>
+                        <span>Support</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="hero-visual">
+                    <div class="dashboard-card card-main">
+                        <div class="card-header">
+                            <span class="dot green"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot red"></span>
+                        </div>
+
+                        <div class="balance-box">
+                            <p>Total Revenue</p>
+                            <h3>KES 245,000</h3>
+                        </div>
+
+                        <div class="mini-payment-list">
+                            <div class="mini-item">
+                                <span class="mini-label">Jane M.</span>
+                                <span class="mini-value">KES 2,500</span>
+                            </div>
+                            <div class="mini-item">
+                                <span class="mini-label">John K.</span>
+                                <span class="mini-value">KES 5,000</span>
+                            </div>
+                            <div class="mini-item">
+                                <span class="mini-label">Alex W.</span>
+                                <span class="mini-value">KES 7,200</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

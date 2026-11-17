@@ -1,0 +1,80 @@
+{% extends 'layout.html' %}
+
+{% load static %}
+
+{% block body %}
+<div class="payment-page">
+    <div class="container payment-shell">
+        <div class="row g-4 align-items-center justify-content-center">
+            <div class="col-lg-5">
+                <div class="payment-card form-panel">
+                    <div class="brand-row">
+                        <div class="brand-badge">M</div>
+                        <div>
+                            <p class="eyebrow">Secure payment</p>
+                            <h3>Mpesa Checkout</h3>
+                        </div>
+                    </div>
+
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-{{ message.tags }} custom-alert" role="alert">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+
+                    <form method="POST" action="{% url 'myapp:pay' %}">
+                        {% csrf_token %}
+
+                        <div class="mb-3">
+                            <label class="form-label">Phone Number</label>
+                            <div class="input-wrap">
+                                <span class="input-prefix">+254</span>
+                                <input type="tel" name="phone" class="form-control" value="712345678" required>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label">Amount</label>
+                            <div class="input-wrap">
+                                <span class="input-prefix">KES</span>
+                                <input type="number" name="amount" class="form-control" min="1" placeholder="2000" required>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn payment-btn w-100">Pay Now</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-lg-5">
+                <div class="payment-card info-panel">
+                    <p class="eyebrow">Why this platform?</p>
+                    <h2>Fast, secure, and trusted transactions.</h2>
+                    <p class="info-text">
+                        Make quick mobile payments with confidence. Our checkout flow is simple, optimized, and built for a modern customer experience.
+                    </p>
+
+                    <ul class="feature-list">
+                        <li>Instant MPESA checkout</li>
+                        <li>Safe and encrypted transaction flow</li>
+                        <li>Responsive and mobile-friendly</li>
+                    </ul>
+
+                    <div class="mini-stats">
+                        <div>
+                            <strong>24/7</strong>
+                            <span>Support</span>
+                        </div>
+                        <div>
+                            <strong>2 min</strong>
+                            <span>Average payment</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
